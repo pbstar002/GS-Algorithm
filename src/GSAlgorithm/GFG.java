@@ -1,5 +1,6 @@
 package GSAlgorithm;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 import java.util.*;
 
@@ -78,12 +79,12 @@ public static void main(String[] args)throws Exception
 	File file = new File(dir+"\\src\\GSAlgorithm\\test.txt");
 	BufferedReader br = new BufferedReader(new FileReader(file));
 	String st;
-	N = Integer.parseInt(br.readLine());
+	N = Integer.parseInt(BoundedLineReader.readLine(br, 5_000_000));
 	int[][] twodArray = new int[N*2][N];
 
 	int temp_array[] = new int[N*N*2];
 	int index = 0;
-    while ((st = br.readLine()) != null) {
+    while ((st = BoundedLineReader.readLine(br, 5_000_000)) != null) {
     	String string_temp[] = st.split("\\s");
         for(int i=0; i<string_temp.length; i++) {
         	temp_array[index] = Integer.parseInt(string_temp[i]);
